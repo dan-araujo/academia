@@ -1,5 +1,5 @@
 ## Projeto Academia com Spring Data JPA
-<p>Essa API Restful mostra um exemplo de modelagem de entidades, no domínio de uma academia de ginástica.</p>
+<p>Essa API Restful com um exemplo de modelagem de entidades, no domínio de uma academia de ginástica.</p>
 
 ### Tecnologias utilizadas:
 <ul>
