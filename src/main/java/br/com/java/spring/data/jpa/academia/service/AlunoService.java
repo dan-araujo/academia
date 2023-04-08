@@ -4,6 +4,7 @@ import br.com.java.spring.data.jpa.academia.entity.Aluno;
 import br.com.java.spring.data.jpa.academia.entity.AvaliacaoFisica;
 import br.com.java.spring.data.jpa.academia.entity.form.AlunoAtualizadoForm;
 import br.com.java.spring.data.jpa.academia.entity.form.AlunoForm;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface AlunoService {
 
     Aluno obterAluno(Long id);
 
-    List<Aluno> obterListaAlunos(String dataNascimento);
+    List<Aluno> obterListaAlunos(String dataNascimento) throws JsonProcessingException;
 
     Aluno atualizarAluno(Long id, AlunoAtualizadoForm formAtualizado);
 

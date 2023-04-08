@@ -38,17 +38,17 @@ public class AlunoController {
     }
 
     @GetMapping("/{id}")
-    public Aluno obterAluno(@PathVariable("id_aluno") Long id) {
+    public Aluno obterAluno(@PathVariable("id") Long id) {
         return service.obterAluno(id);
     }
 
     @PutMapping("/atualizar/{id}")
-    public Aluno atualizarAluno(@PathVariable("id_aluno") Long id, AlunoAtualizadoForm form) {
+    public Aluno atualizarAluno(@PathVariable("id") Long id, AlunoAtualizadoForm form) {
         return service.atualizarAluno(id, form);
     }
 
     @DeleteMapping("/deletar/{id}")
-    public void deletarAluno(@PathVariable("id_aluno") Long id) {
+    public void deletarAluno(@PathVariable("id") Long id) {
         service.deletarAluno(id);
     }
 }

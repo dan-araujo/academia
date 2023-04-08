@@ -1,6 +1,6 @@
 package br.com.java.spring.data.jpa.academia.config.utils.jsonparser.deserializer;
 
-import br.com.java.spring.data.jpa.academia.config.utils.DateTimeUtils;
+import br.com.java.spring.data.jpa.academia.config.utils.JavaTimeUtils;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
@@ -17,6 +17,6 @@ public class LocalDateTimeDeserializer extends StdDeserializer<LocalDateTime> {
 
     @Override
     public LocalDateTime deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
-        return LocalDateTime.parse(jsonParser.readValueAs(String.class), DateTimeUtils.FORMATADOR_DATA_HORA_LOCAL);
+        return LocalDateTime.parse(jsonParser.readValueAs(String.class), JavaTimeUtils.FORMATADOR_DATA_HORA_LOCAL);
     }
 }

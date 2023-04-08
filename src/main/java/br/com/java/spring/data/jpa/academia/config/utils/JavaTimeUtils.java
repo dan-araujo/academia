@@ -3,7 +3,7 @@ package br.com.java.spring.data.jpa.academia.config.utils;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class DateTimeUtils {
+public class JavaTimeUtils {
 
     private static final Locale LOCALE_BR = new Locale("pt", "BR");
     public static final DateTimeFormatter FORMATADOR_DATA_HORA_LOCAL = DateTimeFormatter.ofPattern(
@@ -13,6 +13,6 @@ public class DateTimeUtils {
             "dd/MM/yyyy", LOCALE_BR
     );
 
-    public DateTimeUtils() {
+    public JavaTimeUtils() {
     }
 }

@@ -1,12 +1,13 @@
 package br.com.java.spring.data.jpa.academia.service.impl;
 
-import br.com.java.spring.data.jpa.academia.config.utils.DateTimeUtils;
+import br.com.java.spring.data.jpa.academia.config.utils.JavaTimeUtils;
 import br.com.java.spring.data.jpa.academia.entity.Aluno;
 import br.com.java.spring.data.jpa.academia.entity.AvaliacaoFisica;
 import br.com.java.spring.data.jpa.academia.entity.form.AlunoAtualizadoForm;
 import br.com.java.spring.data.jpa.academia.entity.form.AlunoForm;
 import br.com.java.spring.data.jpa.academia.repository.AlunoRepository;
 import br.com.java.spring.data.jpa.academia.service.AlunoService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,14 @@ import java.util.List;
 @Service
 public class AlunoServiceImpl implements AlunoService {
 
-    @Autowired
-    private AlunoRepository repository;
+    private final AlunoRepository repository;
+    private final ObjectMapper objectMapper;
 
+    @Autowired
+    public AlunoServiceImpl(AlunoRepository repository, ObjectMapper objectMapper) {
+        this.repository = repository;
+        this.objectMapper = objectMapper;
+    }
 
     @Override
     public Aluno criarAluno(AlunoForm form) {
@@ -40,10 +46,10 @@ public class AlunoServiceImpl implements AlunoService {
 
     @Override
     public List<Aluno> obterListaAlunos(String dataNascimento) {
-        if (dataNascimento == null) {
+        if(dataNascimento == null) {
             return repository.findAll();
         } else {
-            LocalDate localDate = LocalDate.parse(dataNascimento, DateTimeUtils.FORMATADOR_DATA_LOCAL);
+            LocalDate localDate = LocalDate.parse(dataNascimento, JavaTimeUtils.FORMATADOR_DATA_LOCAL);
             return repository.encontrarPorDataNascimento(localDate);
         }
     }
